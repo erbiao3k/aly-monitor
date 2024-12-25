@@ -1,3 +1,20 @@
-```shell
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" && upx AlyBillingMonitor
-```
+# 阿里云余额监控程序
+
+## 概述
+这是一个Go语言编写的程序，用于定期检查阿里云余额情况，并通过群机器人发送即将过期的证书提醒。
+
+## 功能
+- 定时查询阿里云余额。低于5000通过群机器人发送提醒消息。
+
+## 环境变量
+- `ACCESS_KEY_ID`: 阿里云AccessKey ID。
+- `ACCESS_KEY_SECRET`: 阿里云AccessKey Secret。
+- `OPS_GROUP_ROBOT`:  企业微信群机器人的Webhook地址。
+
+## 告警示例：
+【阿里云财务监控】
+账号名称：账号1
+当月充值次数：0,
+当月充值金额/元：0.00,
+当前账号余额/元：2476.46,
+请考虑充值
